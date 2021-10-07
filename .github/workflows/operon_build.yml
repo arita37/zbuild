@@ -58,4 +58,4 @@ jobs:
         with:
           name: operon-artifact
           path: '~/miniconda'
-          retention-days: 5
+          retention-days: 60
