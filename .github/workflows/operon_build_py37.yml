@@ -37,7 +37,7 @@ jobs:
           yum install ceres-solver fmt doctest-devel -y
           echo "Cloning & Building the operon"
           git clone https://github.com/heal-research/operon.git
-          mv environment.yml operon
+          mv build_operon/py37.yml operon
           cd operon
           
           # create and activate conda environment
