@@ -1,8 +1,8 @@
-name: operon-env
+name: gcc-env
 channels:
   - conda-forge
 dependencies:
-  - python=3.9.1
+  - python=3.7.1
   - cmake=3.19.1
   - pybind11=2.6.1
   - eigen=3.4.0
