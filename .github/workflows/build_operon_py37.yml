@@ -58,8 +58,11 @@ jobs:
           
           #### Build  ##############################
           # Use gcc-9 (or later)
-          export CC=gcc-9
-          export CXX=gcc-9
+          export CC=gcc
+          export CXX=gcc
+          
+          which gcc 
+          which cmake
           
           
           # run cmake with options
