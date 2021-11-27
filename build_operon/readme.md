@@ -11,10 +11,16 @@ https://github.com/arita37/zbuild/actions
 
 
 
+
 Install instructions:
 
-https://operongp.readthedocs.io/en/latest/build.html#
+Cmake instructions:
+https://github.com/heal-research/operon/blob/master/CMakeLists.txt
 
+
+
+
+https://operongp.readthedocs.io/en/latest/build.html#
 
 
 https://github.com/heal-research/operon
