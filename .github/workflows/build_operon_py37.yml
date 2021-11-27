@@ -44,14 +44,16 @@ jobs:
           conda install -y conda-pack          
           
           
-
-
           echo "Install required dependencies for operon"
           yum install ceres-solver fmt doctest-devel -y
           echo "Cloning & Building the operon"
           git clone https://github.com/heal-research/operon.git
           mv build_operon/py37.yml operon
           cd operon
+          
+          
+          ### Oct 7 version : working  https://github.com/heal-research/operon/commits/          
+          git checkout 24c3714c4356cc8c4f6341d26dea5fab7769c347
           
 
           
