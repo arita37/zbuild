@@ -53,19 +53,23 @@ jobs:
           
           
           ### Oct 7 version : working  https://github.com/heal-research/operon/commits/          
-          git checkout 24c3714c4356cc8c4f6341d26dea5fab7769c347
+          git checkout fa729cf99e4a3ccbbf6886a370f646bac7fc734f
           
-
           
           #### Build  ##############################
-          export CC=gcc
-          export CXX=gcc
+          # Use gcc-9 (or later)
+          export CC=gcc-9
+          export CXX=gcc-9
+          
           
           # run cmake with options
           mkdir build; cd build;
           cmake .. -DCMAKE_BUILD_TYPE=Release  -DBUILD_PYBIND=ON -DUSE_OPENLIBM=ON -DUSE_SINGLE_PRECISION=ON -DCERES_TINY_SOLVER=ON
           make VERBOSE=1 -j pyoperon
           make install
+          
+          #### Check
+          python -c "from operon.sklearn import SymbolicRegressor"
           
           
           ### Pack the install env
