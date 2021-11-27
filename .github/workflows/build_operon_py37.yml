@@ -1,9 +1,9 @@
-name: zbuild_operon
+name: zbuild_pecos
 
 on:
   push:
     branches:
-      - zbuild_operon
+      - zbuild_pecos
 
 jobs:
   build:
