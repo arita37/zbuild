@@ -10,10 +10,43 @@ unzip operon.zip
 conda install --offline  /path/operon-0.0.1-py37h2bc3f7f_0.tar.bz2
 
 
-### Depndenencies
-conda update -all
+
 
 ```
+
+
+### Requirements python
+```
+requirements:
+  build:
+    - {{ compiler('cxx') }}
+    - python {{ python }}
+    - make
+    - cmake
+    - fmt >=8.0.0
+    - ceres-solver
+    - doctest
+    - taskflow
+    - eigen
+    - cxxopts
+    - openlibm
+    - pybind11
+  host:
+    - python {{ python }}
+    - libstdcxx-ng
+    - fmt >=8.0.0
+    - doctest
+    - taskflow
+    - openlibm
+    - gflags
+  run:
+    - python {{ python }}
+    - openlibm
+    - numpy
+    - scikit-learn
+```
+
+
 
 
 ### Conda install of reqs.txt
