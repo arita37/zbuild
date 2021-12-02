@@ -15,5 +15,5 @@ cmake                              \
     -DCERES_TINY_SOLVER=ON         \
     $SRC_DIR
 
-make -j${CPU_COUNT}
+make VERBOSE=1 -j${CPU_COUNT}
 make install
