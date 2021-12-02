@@ -27,10 +27,10 @@ conda update -all
 
 
 ### Docs
-https://operongp.readthedocs.io/en/latest/build.html#
 
+    https://operongp.readthedocs.io/en/latest/build.html#
 
-https://github.com/heal-research/operon
+    https://github.com/heal-research/operon
 
 
 
