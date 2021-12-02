@@ -16,7 +16,7 @@ jobs:
       - name: Setup
         run: |
           echo "Install dependencies"
-          yum -y install curl bzip2 git which
+          yum -y install curl bzip2 git which patch
 
           echo "Install miniconda"
           curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh
@@ -38,6 +38,10 @@ jobs:
           
           ### Oct 7 version : working  https://github.com/heal-research/operon/commits/          
           git checkout fa729cf99e4a3ccbbf6886a370f646bac7fc734f
+
+          # Apply patch before build
+          patch -p1 < ../CMakeLists.txt.patch
+          # patch -p1 < ../no-avx2-no-fma.patch  # if CPU does not have AVX2 or FMA
           
           
           #### Build  ##############################
