@@ -9,7 +9,7 @@ source:
   git_url: https://github.com/heal-research/operon
   patches:
     - CMakeLists.txt.patch
-    - no-avx2-no-fma.patch
+#    - no-avx2-no-fma.patch
 
 build:
   number: 0
