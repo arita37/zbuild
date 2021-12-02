@@ -18,7 +18,7 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
-    - python
+    - python {{ python }}
     - make
     - cmake
     - fmt >=8.0.0
@@ -30,7 +30,7 @@ requirements:
     - openlibm
     - pybind11
   host:
-    - python
+    - python {{ python }}
     - libstdcxx-ng
     - fmt >=8.0.0
     - doctest
@@ -38,7 +38,7 @@ requirements:
     - openlibm
     - gflags
   run:
-    - python
+    - python {{ python }}
     - openlibm
     - scikit-learn
 

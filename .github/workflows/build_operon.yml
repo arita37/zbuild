@@ -31,7 +31,8 @@ jobs:
           # git checkout fa729cf99e4a3ccbbf6886a370f646bac7fc734f
           
           #### Build  ##############################
-          conda build -c conda-forge build_operon/recipe
+          cd build_operon
+          conda build -c conda-forge recipe
  
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v2
