@@ -1,0 +1,78 @@
+{% set name = "operon" %}
+{% set version = "0.0.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  git_url: https://github.com/heal-research/operon
+  patches:
+    - CMakeLists.txt.patch
+    - no-avx2-no-fma.patch
+
+build:
+  number: 0
+  skip: true  # [win and vc<14]
+
+requirements:
+  build:
+    - {{ compiler('cxx') }}
+    - python
+    - make
+    - cmake
+    - fmt >=8.0.0
+    - ceres-solver
+    - doctest
+    - taskflow
+    - eigen
+    - cxxopts
+    - openlibm
+    - pybind11
+  host:
+    - python
+    - libstdcxx-ng
+    - fmt >=8.0.0
+    - doctest
+    - taskflow
+    - openlibm
+    - gflags
+  run:
+    - python
+    - openlibm
+    - scikit-learn
+
+test:
+  commands:
+    - test -d ${SP_DIR}/include/fast_float
+    - test -f ${SP_DIR}/include/fast_float/fast_float.h
+    - test -f ${SP_DIR}/include/fast_float/parse_number.h
+    - test -f ${SP_DIR}/include/fast_float/ascii_number.h
+    - test -f ${SP_DIR}/include/fast_float/decimal_to_binary.h
+    - test -f ${SP_DIR}/include/fast_float/float_common.h
+    - test -f ${SP_DIR}/include/fast_float/simple_decimal_conversion.h
+    - test -f ${SP_DIR}/include/fast_float/digit_comparison.h
+    - test -f ${SP_DIR}/include/fast_float/bigint.h
+    - test -f ${SP_DIR}/include/fast_float/fast_table.h
+    - test -f ${SP_DIR}/share/FastFloat/FastFloatConfig.cmake
+    - test -f ${SP_DIR}/share/FastFloat/FastFloatConfigVersion.cmake
+    - test -f ${SP_DIR}/share/FastFloat/fast_float-targets.cmake
+    - test -d ${SP_DIR}/operon
+    - test -f ${SP_DIR}/operon/_operon.cpython-*-x86_64-linux-gnu.so
+    - test -f ${SP_DIR}/operon/__init__.py
+    - test -f ${SP_DIR}/operon/sklearn.py
+  imports:
+    - operon
+
+
+about:
+  home: https://github.com/heal-research/operon
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE.txt
+  summary: 'Modern C++ framework for Symbolic Regression'
+  dev_url: https://github.com/heal-research/operon
+
+extra:
+  recipe-maintainers:
+    - arita37

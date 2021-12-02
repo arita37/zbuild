@@ -25,47 +25,13 @@ jobs:
           
           echo "create and activate conda environment" 
           conda env create -f build_operon/py37.yml
-          conda activate operon-env
-          
-          echo "Conda Pack"
-          conda install -y conda-pack          
-                    
-          echo "Cloning & Building the operon"
-          git clone https://github.com/heal-research/operon.git
-          mv build_operon/py37.yml operon
-          cd operon
-          
+          conda activate operon-env          
           
           ### Oct 7 version : working  https://github.com/heal-research/operon/commits/          
           # git checkout fa729cf99e4a3ccbbf6886a370f646bac7fc734f
-
-          # Apply patch before build
-          patch -p1 < ../build_operon/CMakeLists.txt.patch
-          # patch -p1 < ../build_operon/no-avx2-no-fma.patch  # if CPU does not have AVX2 or FMA
-          
           
           #### Build  ##############################
-          which gcc 
-          which cmake
-                    
-          # run cmake with options
-          mkdir build; cd build;
-          cmake .. \
-            -DCMAKE_BUILD_TYPE=Release \
-            -DBUILD_PYBIND=ON \
-            -DUSE_OPENLIBM=ON \
-            -DUSE_SINGLE_PRECISION=ON \
-            -DCERES_TINY_SOLVER=ON
-          make VERBOSE=1 -j$(nproc) pyoperon
-          make install
-          
-          #### Check
-          python -c "from operon.sklearn import SymbolicRegressor"
-          
-          
-          ### Pack the install env
-          conda pack -n operon-env  -o conda_operon_env.tar.gz
-          
+          conda build build_operon/recipe          
  
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v2
