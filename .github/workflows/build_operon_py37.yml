@@ -24,14 +24,14 @@ jobs:
           eval "$($HOME/miniconda/bin/conda shell.bash hook)"
           
           echo "create and activate conda environment" 
-          conda create -n operon-env python=3.7
-          conda activate operon-env          
+          conda create -n operon-env python=3.7 conda-build
+          conda activate operon-env
           
           ### Oct 7 version : working  https://github.com/heal-research/operon/commits/          
           # git checkout fa729cf99e4a3ccbbf6886a370f646bac7fc734f
           
           #### Build  ##############################
-          conda build build_operon/recipe          
+          conda build -c conda-forge build_operon/recipe
  
       - name: 'Upload Artifact'
         uses: actions/upload-artifact@v2
