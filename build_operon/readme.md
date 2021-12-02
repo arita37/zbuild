@@ -7,7 +7,7 @@ wget   https://github.com/arita37/zbuild/suites/4530351276/artifacts/121312337  
 unzip operon.zip
 
 
-conda install --use-local operon-0.0.1-py37h2bc3f7f_0.tar.bz2
+conda install --offline  /path/operon-0.0.1-py37h2bc3f7f_0.tar.bz2
 
 
 ### Depndenencies
