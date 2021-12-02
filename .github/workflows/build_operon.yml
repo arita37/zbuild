@@ -39,4 +39,4 @@ jobs:
         with:
           name: upload files
           path: /github/home/miniconda/envs/operon-env/conda-bld/linux-64/operon-*-py*.tar.bz2
-          retention-days: 120
+          retention-days: 90
