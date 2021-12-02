@@ -14,3 +14,4 @@ dependencies:
   - gxx
   - libstdcxx-ng
   - gflags
+  - make
