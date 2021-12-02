@@ -56,7 +56,7 @@ jobs:
             -DUSE_OPENLIBM=ON \
             -DUSE_SINGLE_PRECISION=ON \
             -DCERES_TINY_SOLVER=ON
-          make VERBOSE=1 pyoperon
+          make VERBOSE=1 -j$(nproc) pyoperon
           make install
           
           #### Check
