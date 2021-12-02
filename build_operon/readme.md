@@ -19,18 +19,16 @@ conda update -all
 ### Conda install of reqs.txt
 ```
 
-I ended up just iterating over the lines of the file
+ iterating over the lines of the file
 
-    while read req; do conda install --yes $req; done < requirements.txt
+    while read req; do conda install --yes $req; done < reqs.txt
 
 
 Edit: If you would like to install a package using pip if it is not available through conda, give this a go:
 
 $ while read requirement; do conda install --yes $requirement || pip install $requirement; done < requirements.txt
 
-Edit: If you are using Windows (credit goes to @Clay):
 
-$ FOR /F "delims=~" %f in (requirements.txt) DO conda install --yes "%f" || pip install "%f"
 
 ```
 
