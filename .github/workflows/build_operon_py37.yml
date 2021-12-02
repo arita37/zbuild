@@ -37,7 +37,7 @@ jobs:
           
           
           ### Oct 7 version : working  https://github.com/heal-research/operon/commits/          
-          git checkout fa729cf99e4a3ccbbf6886a370f646bac7fc734f
+          # git checkout fa729cf99e4a3ccbbf6886a370f646bac7fc734f
 
           # Apply patch before build
           patch -p1 < ../CMakeLists.txt.patch
