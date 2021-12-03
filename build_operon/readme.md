@@ -10,7 +10,9 @@ unzip operon.zip
 conda install --offline  /path/operon-0.0.1-py37h2bc3f7f_0.tar.bz2
 
 
-
+#### Need to install other requirements
+while read req; do conda install --yes $req; done < build_operon/reqs.txt
+   
 
 ```
 
