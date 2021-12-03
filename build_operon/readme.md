@@ -7,12 +7,23 @@ wget   https://github.com/arita37/zbuild/suites/4530351276/artifacts/121312337  
 unzip operon.zip
 
 
-conda install --offline  /path/operon-0.0.1-py37h2bc3f7f_0.tar.bz2
+conda install   /path/operon-0.0.1-py37h2bc3f7f_0.tar.bz2
+conda update -c conda-forge --all
+
+pip install scikit-learn numpy
+
 
 
 #### Need to install other requirements
 while read req; do conda install --yes $req; done < build_operon/reqs.txt
-   
+ 
+ 
+ 
+ In [6]: X = np.random.random((10,5))
+
+In [7]: y= np.random.random((10,1))
+
+
 
 
 Downloading and Extracting Packages
@@ -89,71 +100,6 @@ ImportError: libfmt.so.8: cannot open shared object file: No such file or direct
 
 
 
-        "sha256": "72276231f5000d1e70809795c1a8e3a37ceefb690244eb50a15663bc720e8351",
-        "sha256_in_prefix": "72276231f5000d1e70809795c1a8e3a37ceefb690244eb50a15663bc720e8351",
-        "size_in_bytes": 115
-      },
-      {
-        "_path": "lib/python3.7/site-packages/operon/__pycache__/__init__.cpython-37.pyc",
-        "path_type": "hardlink",
-        "sha256": "bcca0b09a9412c8900cacc0ba0521f1a2f3720a0c78d35a6fc5f3de073df4190",
-        "sha256_in_prefix": "bcca0b09a9412c8900cacc0ba0521f1a2f3720a0c78d35a6fc5f3de073df4190",
-        "size_in_bytes": 157
-      },
-      {
-        "_path": "lib/python3.7/site-packages/operon/__pycache__/sklearn.cpython-37.pyc",
-        "path_type": "hardlink",
-        "sha256": "dc7b8732733358b14204a3069ff59ad82ea95753081e1cb0545a4f5d13d3c5c4",
-        "sha256_in_prefix": "dc7b8732733358b14204a3069ff59ad82ea95753081e1cb0545a4f5d13d3c5c4",
-        "size_in_bytes": 11284
-      },
-      {
-        "_path": "lib/python3.7/site-packages/operon/_operon.cpython-37m-x86_64-linux-gnu.so",
-        "path_type": "hardlink",
-        "sha256": "ea98b4f7dab6778d58013f09866bcf9e2eaf7a6070caf63516703a32f39a8fbf",
-        "sha256_in_prefix": "ea98b4f7dab6778d58013f09866bcf9e2eaf7a6070caf63516703a32f39a8fbf",
-        "size_in_bytes": 1710264
-      },
-      {
-        "_path": "lib/python3.7/site-packages/operon/sklearn.py",
-        "path_type": "hardlink",
-        "sha256": "3c81828a4bee904fcc696cb3554fc89cbcf702fc9685b78f4007c21dbac8f8fa",
-        "sha256_in_prefix": "3c81828a4bee904fcc696cb3554fc89cbcf702fc9685b78f4007c21dbac8f8fa",
-        "size_in_bytes": 17096
-      },
-      {
-        "_path": "lib/python3.7/site-packages/share/FastFloat/FastFloatConfig.cmake",
-        "path_type": "hardlink",
-        "sha256": "73ed99da3c1f28ccb89adfcdbafbad08678074826be131bec1565eb8fea11aa9",
-        "sha256_in_prefix": "73ed99da3c1f28ccb89adfcdbafbad08678074826be131bec1565eb8fea11aa9",
-        "size_in_bytes": 973
-      },
-      {
-        "_path": "lib/python3.7/site-packages/share/FastFloat/FastFloatConfigVersion.cmake",
-        "path_type": "hardlink",
-        "sha256": "d7076b345e3c27722d66c08b810755cbfe183240447ee85b6ca885cf61f7be58",
-        "sha256_in_prefix": "d7076b345e3c27722d66c08b810755cbfe183240447ee85b6ca885cf61f7be58",
-        "size_in_bytes": 2878
-      },
-      {
-        "_path": "lib/python3.7/site-packages/share/FastFloat/fast_float-targets.cmake",
-        "path_type": "hardlink",
-        "sha256": "3460b036ff22c4f879439a7b5e760cbe1ca6daa27fc6fa24720768fd83c29653",
-        "sha256_in_prefix": "3460b036ff22c4f879439a7b5e760cbe1ca6daa27fc6fa24720768fd83c29653",
-        "size_in_bytes": 3361
-      }
-    ],
-    "paths_version": 1
-  },
-  "platform": "linux",
-  "requested_spec": "operon[url=file://bin/operon-0-1.0.1-py37_0.tar.bz2]",
-  "sha256": "b29a69e1fb3bb89d86921a5ce0e837b22400441c08ee7da0d0542bfef8de2efa",
-  "size": 714339,
-  "subdir": "linux-64",
-  "timestamp": 1638438513641,
-  "track_features": "",
-  "url": "file://bin/operon-0-1.0.1-py37_0.tar.bz2",
-  "version": "0.0.1"
 
 ```
 
