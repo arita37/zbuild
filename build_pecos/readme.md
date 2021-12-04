@@ -27,6 +27,26 @@ python3 -m pip install --editable ./
 
 
 
+numpy_requires = [
+    'numpy<1.20.0; python_version<"3.7"', # setup_requires needs correct version for <3.7
+    'numpy>=1.19.5; python_version>="3.7"'
+]
+setup_requires = numpy_requires + [
+    'pytest-runner',
+    'sphinx_rtd_theme'
+]
+install_requires = numpy_requires + [
+    'scipy>=1.4.1',
+    'scikit-learn>=0.24.1',
+    'torch>=1.8.0',
+    'sentencepiece>=0.1.86,!=0.1.92', # 0.1.92 results in error for transformers
+    'transformers>=4.1.1; python_version<"3.9"',
+    'transformers==4.4.2; python_version>="3.9"' # Python 3.9 only support transformer 4.4.2
+
+
+    
+
+
 ##### Test code
 import numpy as np
 X = np.random.random((10,5))
