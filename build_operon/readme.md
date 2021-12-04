@@ -174,6 +174,10 @@ $ while read requirement; do conda install --yes $requirement || pip install $re
     https://github.com/heal-research/operon/blob/master/CMakeLists.txt
 
 
+    There is a patch in conda build to activate AVX C++ Build.
+
+
+
 ### Docs
 
     https://operongp.readthedocs.io/en/latest/build.html#
