@@ -17,6 +17,12 @@ https://github.com/amzn/pecos/blob/mainline/.github/build_pypi_wheel.sh
   python 3.7  only
 
 
+   First, in your user home directory, run the conda skeleton command:
+
+   conda skeleton pypi libpecos
+
+   
+
 
 
 Install and develop locally
@@ -26,7 +32,7 @@ python3 -m pip install --editable ./
 
 
 
-
+#################################################################################################
 numpy_requires = [
     'numpy<1.20.0; python_version<"3.7"', # setup_requires needs correct version for <3.7
     'numpy>=1.19.5; python_version>="3.7"'
@@ -44,9 +50,9 @@ install_requires = numpy_requires + [
     'transformers==4.4.2; python_version>="3.9"' # Python 3.9 only support transformer 4.4.2
 
 
-    
 
 
+######################################################################################
 ##### Test code
 import numpy as np
 X = np.random.random((10,5))
