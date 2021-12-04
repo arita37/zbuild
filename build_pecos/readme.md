@@ -1,23 +1,62 @@
 
 
-Building the wheel
+Building the wheel  or conda
+```
 
+Github action:
+https://github.com/amzn/pecos/blob/mainline/.github/workflows/build_pypi.yml
+
+
+## Wheel building
 https://github.com/amzn/pecos/blob/mainline/.github/build_pypi_wheel.sh
 
 
 
+
+#### Need conda for
+  python 3.7  only
+
+
+
+
+Install and develop locally
+git clone https://github.com/amzn/pecos
+cd pecos
+python3 -m pip install --editable ./
+
+
+
+
+##### Test code
+import numpy as np
+X = np.random.random((10,5))
+Y = np.random.random(5)
+
+
+
+>>> from pecos.xmc.xlinear.model import XLinearModel
+>>> from pecos.xmc import Indexer, LabelEmbeddingFactory
+
+# Build hierarchical label tree and train a XR-Linear model
+>>> label_feat = LabelEmbeddingFactory.create(Y, X)
+>>> cluster_chain = Indexer.gen(label_feat)
+>>> model = XLinearModel.train(X, Y, C=cluster_chain)
+>>> model.save("./save-models")
+
+
+```
 
 
 
 
 ### Install
 ```
-wget   https://github.com/arita37/zbuild/suites/4530351276/artifacts/121312337    operon.zi[p
+wget   https://github.com/arita37/zbuild/suites/4530351276/artifacts/121312337    pecos.zi[p
 
-unzip operon.zip
+unzip pecos.zip
 
 
-conda install   /path/operon-0.0.1-py37h2bc3f7f_0.tar.bz2
+conda install   /path/pecos-0.0.1-py37h2bc3f7f_0.tar.bz2
 conda update -c conda-forge --all
 
 pip install scikit-learn numpy
@@ -25,7 +64,7 @@ pip install scikit-learn numpy
 
 
 #### Need to install other requirements
-while read req; do conda install --yes $req; done < build_operon/reqs.txt
+while read req; do conda install --yes $req; done < build_pecos/reqs.txt
  
  
  
@@ -72,7 +111,7 @@ The following NEW packages will be INSTALLED:
     numpy:            1.21.4-py37h31617e3_0       conda-forge
     openlibm:         0.7.0-h516909a_0            conda-forge
     openssl:          3.0.0-h7f98852_2            conda-forge
-    operon:           0.0.1-py37h42a920f_0        local      
+    pecos:           0.0.1-py37h42a920f_0        local      
     pip:              21.3.1-pyhd8ed1ab_0         conda-forge
     python:           3.7.12-hf930737_100_cpython conda-forge
     python_abi:       3.7-2_cp37m                 conda-forge
@@ -97,15 +136,15 @@ The following NEW packages will be INSTALLED:
 
 
 WARNING conda.core.prefix_data:_load_single_record(190): 
-Ignoring malformed prefix record at: mconda/envs/py37/conda-meta/operon-0-1.0.1-py37_0.json
+Ignoring malformed prefix record at: mconda/envs/py37/conda-meta/pecos-0-1.0.1-py37_0.json
 
 
 
-python -c 'import numpy as np;from operon.sklearn import SymbolicRegressor;'
+python -c 'import numpy as np;from pecos.sklearn import SymbolicRegressor;'
 Traceback (most recent call last):
   File "<string>", line 1, in <module>
-  File "/mconda/envs/py37/lib/python3.7/site-packages/operon/__init__.py", line 4, in <module>
-    from ._operon import *
+  File "/mconda/envs/py37/lib/python3.7/site-packages/pecos/__init__.py", line 4, in <module>
+    from ._pecos import *
 ImportError: libfmt.so.8: cannot open shared object file: No such file or directory
 
 
@@ -178,10 +217,10 @@ $ while read requirement; do conda install --yes $requirement || pip install $re
 
 ### Build Process:
     Github Actions
-    https://github.com/arita37/zbuild/blob/zbuild_operon/.github/workflows/build_operon_py37.yml
+    https://github.com/arita37/zbuild/blob/zbuild_pecos/.github/workflows/build_pecos_py37.yml
 
     Cmake instructions:
-    https://github.com/heal-research/operon/blob/master/CMakeLists.txt
+    https://github.com/heal-research/pecos/blob/master/CMakeLists.txt
 
 
     There is a patch in conda build to activate AVX C++ Build.
@@ -190,9 +229,9 @@ $ while read requirement; do conda install --yes $requirement || pip install $re
 
 ### Docs
 
-    https://operongp.readthedocs.io/en/latest/build.html#
+    https://pecosgp.readthedocs.io/en/latest/build.html#
 
-    https://github.com/heal-research/operon
+    https://github.com/heal-research/pecos
 
 
 
