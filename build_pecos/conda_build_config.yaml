@@ -1,0 +1,7 @@
+python:
+    - 3.7
+    - 3.8
+    
+### Nove 11, 2021,  https://github.com/heal-research/operon/commit/fa729cf99e4a3ccbbf6886a370f646bac7fc734f    
+git_rev:
+    - fa729cf99e4a3ccbbf6886a370f646bac7fc734f 
