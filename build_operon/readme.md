@@ -4,6 +4,7 @@
 ```
 wget   https://github.com/arita37/zbuild/suites/4530351276/artifacts/121312337    operon.zi[p
 
+From this page :   https://github.com/arita37/zbuild/actions/runs/1536057614
 unzip operon.zip
 
 
@@ -14,6 +15,18 @@ pip install scikit-learn numpy
 
 
 
+
+
+```
+
+
+
+
+
+
+
+
+```
 #### Need to install other requirements
 while read req; do conda install --yes $req; done < build_operon/reqs.txt
  
