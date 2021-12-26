@@ -1,4 +1,4 @@
-{% set name = "operon" %}
+{% set name = "amzn_pecos" %}
 {% set version = "0.0.1" %}
 
 package:
@@ -6,75 +6,55 @@ package:
   version: {{ version }}
 
 source:
-  git_url: https://github.com/heal-research/operon
-  git_rev: {{ git_rev }}
-  patches:
-    - CMakeLists.txt.patch
-#    - no-avx2-no-fma.patch
+  git_url: https://github.com/amzn/pecos.git
 
 build:
   number: 0
-  skip: true  # [win and vc<14]
+  script: |
+    python -m pip install . -vv
 
 requirements:
   build:
-    - {{ compiler('cxx') }}
-    - python {{ python }}
     - make
     - cmake
-    - fmt >=8.0.0
-    - ceres-solver
-    - doctest
-    - taskflow
-    - eigen
-    - cxxopts
-    - openlibm
-    - pybind11
-  host:
-    - python {{ python }}
-    - libstdcxx-ng
-    - fmt >=8.0.0
-    - doctest
-    - taskflow
-    - openlibm
-    - gflags
-  run:
-    - python {{ python }}
-    - openlibm
-    - numpy
+    - python={{ python }}
+    - gxx={{ gxx }}
+    - numpy>=1.19.5
+    - blas
+    - sphinx_rtd_theme
+    - pytest-runner
+    - scipy
     - scikit-learn
+    - pytorch
+    - click
+    - transformers
+    - sentencepiece
+    - libgomp
+  run:
+    - python={{ python }}
+    - libstdcxx-ng
+    - numpy>=1.19.5
+    - blas
+    - sphinx_rtd_theme
+    - scipy
+    - scikit-learn
+    - pytorch
+    - click
+    - transformers
+    - sentencepiece
 
 test:
-  commands:
-    - test -d ${SP_DIR}/include/fast_float
-    - test -f ${SP_DIR}/include/fast_float/fast_float.h
-    - test -f ${SP_DIR}/include/fast_float/parse_number.h
-    - test -f ${SP_DIR}/include/fast_float/ascii_number.h
-    - test -f ${SP_DIR}/include/fast_float/decimal_to_binary.h
-    - test -f ${SP_DIR}/include/fast_float/float_common.h
-    - test -f ${SP_DIR}/include/fast_float/simple_decimal_conversion.h
-    - test -f ${SP_DIR}/include/fast_float/digit_comparison.h
-    - test -f ${SP_DIR}/include/fast_float/bigint.h
-    - test -f ${SP_DIR}/include/fast_float/fast_table.h
-    - test -f ${SP_DIR}/share/FastFloat/FastFloatConfig.cmake
-    - test -f ${SP_DIR}/share/FastFloat/FastFloatConfigVersion.cmake
-    - test -f ${SP_DIR}/share/FastFloat/fast_float-targets.cmake
-    - test -d ${SP_DIR}/operon
-    - test -f ${SP_DIR}/operon/_operon.cpython-*-x86_64-linux-gnu.so
-    - test -f ${SP_DIR}/operon/__init__.py
-    - test -f ${SP_DIR}/operon/sklearn.py
-    - python -c "import numpy as np;from operon.sklearn import SymbolicRegressor;X= np.array([[0,1]]);y= [0.5];reg = SymbolicRegressor();reg.fit(X, y);"
   imports:
-    - operon
-
+    - pecos.xmc
+    - pecos.xmc.xlinear.model
+  source_files:
+    - test/tst-data/xmc/xlinear/
 
 about:
-  home: https://github.com/heal-research/operon
-  license: MIT
-  license_family: MIT
-  license_file: LICENSE.txt
-  summary: 'Modern C++ framework for Symbolic Regression'
-  dev_url: https://github.com/heal-research/operon
+  home: https://github.com/amzn/pecos
+  license: Apache License 2.0
+  license_family: APACHE
+  summary: 'PECOS - Predictions for Enormous and Correlated Output Spaces'
 
 extra:
   recipe-maintainers:

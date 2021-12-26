@@ -3,7 +3,7 @@ name: zbuild_pecos
 on:
   push:
     branches:
-      - zbuild_pecos
+      - zbuild_pecos_aki
 
 jobs:
   build:
@@ -16,7 +16,8 @@ jobs:
       - name: Setup
         run: |
           echo "Install dependencies"
-          yum -y install curl bzip2 git which patch
+          yum -y install curl bzip2 git glibc-devel
+
           echo "Install miniconda"
           curl -sSL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o /tmp/miniconda.sh
           bash /tmp/miniconda.sh -b -p $HOME/miniconda
@@ -26,9 +27,6 @@ jobs:
           conda create -n pecos-env python=3.7 conda-build
           conda activate pecos-env
           
-          ### Oct 7 version : working  https://github.com/heal-research/pecos/commits/          
-          # git checkout fa729cf99e4a3ccbbf6886a370f646bac7fc734f
-          
           #### Build  ##############################
           cd build_pecos
           conda build -c conda-forge recipe
@@ -37,5 +35,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: upload files
-          path: /github/home/miniconda/envs/pecos-env/conda-bld/linux-64/pecos-*-py*.tar.bz2
+          path: /github/home/miniconda/envs/pecos-env/conda-bld/linux-64/amzn_pecos-*.tar.bz2
           retention-days: 300
