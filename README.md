@@ -3,13 +3,14 @@
 
 ## Purpose
 
-This script will create a package for Amazon PECOS library
+This script will create a package for ECOS library
 that can be installed by conda install.
 
 The target repository is as follow:
-- https://github.com/amzn/pecos.git
+- https://github.com/ amzn /pecos.git
 
-Note that there is another pecos package in conda-forge.
+
+
 
 ## Build
 
