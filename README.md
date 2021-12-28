@@ -1,6 +1,5 @@
 # conda package for amazon pecos
 
-December 26, 2021
 
 ## Purpose
 
