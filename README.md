@@ -26,6 +26,38 @@ You can also download the tar-ball as an artifact that is created by the github 
 ```
 conda install /path/to/amzn_pecos-*.tar.bz2
 conda update --all
+
+--->
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ld_impl_linux-64-2.35.1    |       h7274673_9         586 KB
+    libffi-3.3                 |       he6710b0_2          50 KB
+    python-3.7.11              |       h12debd9_0        45.3 MB
+    readline-8.1               |       h27cfd23_0         362 KB
+    sqlite-3.36.0              |       hc218d9a_0         990 KB
+    ------------------------------------------------------------
+                                           Total:        47.3 MB
+
+The following NEW packages will be INSTALLED:
+
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.35.1-h7274673_9
+
+The following packages will be REMOVED:
+
+  libedit-3.1.20210910-h7f8727e_0
+
+The following packages will be UPDATED:
+
+  libffi                                3.2.1-hf484d3e_1007 --> 3.3-he6710b0_2
+  python                                   3.7.4-h265db76_1 --> 3.7.11-h12debd9_0
+  readline                                   7.0-h7b6447c_5 --> 8.1-h27cfd23_0
+  sqlite                                  3.33.0-h62c20be_0 --> 3.36.0-hc218d9a_0
+
+
 ```
 
 ## Compile problem
