@@ -3,7 +3,7 @@ name: zbuild_pecos
 on:
   push:
     branches:
-      - zbuild_pecos_aki
+      - zbuild_hnsw
 
 jobs:
   build:
@@ -24,8 +24,8 @@ jobs:
           eval "$($HOME/miniconda/bin/conda shell.bash hook)"
           
           echo "create and activate conda environment" 
-          conda create -n pecos-env python=3.7 conda-build
-          conda activate pecos-env
+          conda create -n test python=3.7 conda-build
+          conda activate test
           
           #### Build  ##############################
           cd build_pecos
@@ -35,5 +35,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: upload files
-          path: /github/home/miniconda/envs/pecos-env/conda-bld/linux-64/amzn_pecos-*.tar.bz2
+          path: /github/home/miniconda/envs/pecos-env/conda-bld/linux-64/hnsw2-*.tar.bz2
           retention-days: 300
