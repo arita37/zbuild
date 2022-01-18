@@ -6,8 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  # git_url: https://github.com/arita37/cat_hnswlib.git
-  git_url: https://github.com/nmslib/hnswlib.git
+  git_url: https://github.com/arita37/cat_hnswlib.git
+  # git_url: https://github.com/nmslib/hnswlib.git
 
 #source:
 #  git_url: https://github.com/heal-research/operon
