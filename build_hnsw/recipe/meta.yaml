@@ -23,7 +23,8 @@ requirements:
     - cmake
     - python={{ python }}
     - gxx={{ gxx }}
-    - numpy>=1.19.5
+    #- numpy<=1.19.5
+    - numpy<1.17.0
     - blas
     - pytest-runner
     - libgomp
@@ -32,13 +33,14 @@ requirements:
   run:
     - python={{ python }}
     - libstdcxx-ng
-    - numpy>=1.19.5
+    #- numpy>=1.19.5
+    - numpy<1.17.0
 
 test:
   imports:
     - import hnswlib
-  source_files:
-    - python_bindings/tests/
+  #source_files:
+  #  - python_bindings/tests/
 
 about:
   home: hnsw2
