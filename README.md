@@ -12,6 +12,12 @@ https://github.com/arita37/cat_hnswlib/tree/master/python_bindings
 
 ## Build
 
+please check here
+https://github.com/arita37/zbuild/actions/workflows/build.yml
+
+https://github.com/arita37/zbuild/tree/zbuild_hnsw/build_hnsw
+
+
 ```
 git clone ...
 cd /path/to/repo
