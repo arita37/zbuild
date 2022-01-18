@@ -19,6 +19,7 @@ build:
 requirements:
   build:
     - make
+    - pip
     - cmake
     - python={{ python }}
     - gxx={{ gxx }}
