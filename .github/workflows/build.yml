@@ -1,4 +1,4 @@
-name: zbuild_pecos
+name: zbuild_hnsw
 
 on:
   push:
