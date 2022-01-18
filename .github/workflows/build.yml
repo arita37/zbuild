@@ -28,7 +28,7 @@ jobs:
           conda activate test
           
           #### Build  ##############################
-          cd build_pecos
+          cd build_hnsw
           conda build -c conda-forge recipe
  
       - name: 'Upload Artifact'
