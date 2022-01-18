@@ -38,7 +38,7 @@ requirements:
 
 test:
   imports:
-    - import hnswlib
+    - hnswlib
   #source_files:
   #  - python_bindings/tests/
 
