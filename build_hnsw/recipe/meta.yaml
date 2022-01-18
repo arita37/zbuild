@@ -1,4 +1,4 @@
-{% set name = "amzn_pecos" %}
+{% set name = "hnsw2" %}
 {% set version = "0.0.1" %}
 
 package:
@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  git_url: https://github.com/amzn/pecos.git
+  git_url: https://github.com/arita37/cat_hnswlib/tree/master/python_bindings
 
 build:
   number: 0
@@ -45,16 +45,15 @@ requirements:
 
 test:
   imports:
-    - pecos.xmc
-    - pecos.xmc.xlinear.model
+    - import hnswlib
   source_files:
-    - test/tst-data/xmc/xlinear/
+    - python_bindings/tests/
 
 about:
-  home: https://github.com/amzn/pecos
+  home: hnsw2
   license: Apache License 2.0
   license_family: APACHE
-  summary: 'PECOS - Predictions for Enormous and Correlated Output Spaces'
+  summary: 'hnsw2'
 
 extra:
   recipe-maintainers:
