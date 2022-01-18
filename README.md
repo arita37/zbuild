@@ -18,6 +18,10 @@ https://github.com/arita37/zbuild/actions/workflows/build.yml
 https://github.com/arita37/zbuild/tree/zbuild_hnsw/build_hnsw
 
 
+Existing conda package build is here:
+https://github.com/conda-forge/hnswlib-feedstock/blob/master/recipe/meta.yaml
+
+
 ```
 git clone ...
 cd /path/to/repo
