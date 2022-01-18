@@ -36,13 +36,6 @@ conda install /path/to/-*.tar.bz2
 conda update --all
 
 
-
-
-    python-3.7.11              |       h12debd9_0        45.3 MB
-    
-    
-    
-
 ```
 
 ## Compile problem
