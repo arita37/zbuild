@@ -35,5 +35,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: upload files
-          path: /github/home/miniconda/envs/pecos-env/conda-bld/linux-64/hnsw2-*.tar.bz2
+          path: /github/home/miniconda/envs/test/conda-bld/linux-64/hnsw2-*.tar.bz2
           retention-days: 300
